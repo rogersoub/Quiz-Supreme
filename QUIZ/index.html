@@ -3,27 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech</title>
-    <link rel="stylesheet" href="./_CSS/style.css">
-    <script defer src="./_JS/script.js"></script>
+    <title>BTech</title>
+    <link rel="icon" type="image/png" href="/QUIZ/_img/iconPages.png">
+    <link rel="stylesheet" href="/QUIZ/_CSS/style.css">
+    <script src="/QUIZ/_JS/script.js"></script>
 </head>
 <body>
     <!-- Para adicionar algo no html falar com o Pedro W. -->
-    <section>
-        <div class="botoes">
-            <button></button>
+    <section class="main">
+        <!-- Início -->
+        <div class="initial">
+            <p>Olá! Esse é um questionário sobre tecnologia, animes e esportes. Preparado(a)? 🤔</p>
+            <button id="viewFormm" onclick="viewForm()">Bora!</button>
         </div>
-        <div class="botoes">
-            <button></button>
-        </div>
-        <div class="botoes">
-            <button></button>
-        </div>
-        <div class="botoes">
-            <button></button>
-        </div>
+
+        <form action="">
+                <!-- texto da questão -->
+            <div class="div-question-text">
+                <p class="question-text">texto</p>
+            </div>
+            <!-- opções -->
+             <div>
+                <label for="option1">A)</label><!-- Letra -->
+                <input type="button" class="button" id="option1" value="Aresp" onclick="selectOption(this.value)"><!-- pegar o valor do value -->
+             </div>
+            
+            <div>
+                <label for="option2">B)</label>
+                <input type="button" class="button" id="option2" value="Bresp" onclick="selectOption(this.value)">
+            </div>
+
+            <div>
+                <label for="option3">C)</label>
+                <input type="button" class="button" id="option3" value="Cresp" onclick="selectOption(this.value)">
+            </div>
+
+            <div>
+                <label for="option4">D)</label>
+            <input type="button" class="button" id="option4" value="Dresp" onclick="selectOption(this.value)">
+            </div>
+            
+            <!-- Botão de enviar -->
+            <input type="button" value="Enviar" id="submit" onclick="enterQuest()" >
+        </form>  
+
     </section>
 </body>
+
+<!-- Créditos -->
 <footer>
     <nav>
         <ul>
