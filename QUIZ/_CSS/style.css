@@ -2,18 +2,20 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    font-family: 'Pixelify Sans', sans-serif;
 }
 
 body {
-    font-family: 'Pixelify Sans', sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
+   /* margin: 10%;
+    padding: 10%; */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 720px;
+    flex-direction: column;
+    min-height: none;
     text-align: center;
+    gap: 5px;
+    background: linear-gradient(90deg, rgb(238, 98, 121) 0%, rgba(0, 0, 0, 0.534) 100%);
 }
 
 h1, h2 {
@@ -38,3 +40,4 @@ button:active {
     background-color: #f8f8ff;
     color: #a6aa3e;
 }
+
