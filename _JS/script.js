@@ -49,3 +49,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     CarregarProximaQuestao();
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const jsConfetti = new JSConfetti();
+    const menuButton = document.getElementById('menuButton');
+
+    function startConfettiLoop() {
+        jsConfetti.addConfetti();
+
+        const confettiInterval = setInterval(() => {
+            jsConfetti.addConfetti(); 
+        }, 2000);
+
+        menuButton.addEventListener('click', () => {
+            clearInterval(confettiInterval); 
+            window.location.href = 'index.html';
+        });
+    }
+
+    startConfettiLoop();
+});
+
