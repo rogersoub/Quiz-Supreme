@@ -8,6 +8,42 @@
 
 body {
     height: 100vh;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 100%; 
+    }
+    
+    img {
+        width: 100%;
+    }
+    
+    .botao {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    nav.fotos ul {
+        flex-direction: column;
+    }
+
+    nav.fotos ul li a img {
+        max-width: 80px;
+    }
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Pixelify Sans', sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
     display: flex;
@@ -37,6 +73,7 @@ button {
     align-items: center;
     text-align: center;
     flex-direction: column;
+    justify-content: center;
     border: none;
     gap: 2px;
     padding: 12px 24px;
@@ -52,6 +89,74 @@ button:active {
     color: #a6aa3e;
 }
 
+nav.fotos {
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav.fotos ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav.fotos ul li {
+    margin: 0;
+    padding: 0;
+}
+
+nav.fotos ul li a {
+    text-decoration: none;
+    position: relative;
+}
+
+.imagens {
+    position: relative;
+    display: inline-block;
+}
+
+nav.fotos ul li a img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+nav.fotos ul li a img:hover {
+    transform: scale(1.1);
+}
+
+.legenda {
+    display: none;
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.imagens:hover .legenda {
+    display: block;
+}
+
+#confetti {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    pointer-events: none;
+}
 
 #questoes {
     display: flex;
@@ -155,4 +260,12 @@ button:active {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+}
+
+footer {
+    position: fixed; 
+    bottom: 0;
+    width: 100%; 
+    background-color: #1f3721; 
+    padding: 10px 0;
 }

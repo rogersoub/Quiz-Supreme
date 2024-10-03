@@ -1,3 +1,4 @@
+
 //abre o HTML todo primeiro
 document.addEventListener('DOMContentLoaded', function () {
    //pega os locais no HTMl
@@ -9,6 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
     let perguntas = [
         //fazendo instanciamento dos objetos
         { questoes: "O que significa HTML?", respostas: ["HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"], certo: 0 },//índice da resp porque resposta é um array
+
+document.addEventListener('DOMContentLoaded', function () {
+    const questoesBox = document.getElementById('questoes');
+    const respostasBox = document.getElementById('respostas');
+
+    let perguntas = [
+        { questoes: "O que significa HTML?", respostas: ["HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"], certo: 0 },
+
         { questoes: "Qual destas tecnologias é fundamental para o desenvolvimento de Inteligência Artificial (IA)?", respostas: ["Banco de Dados", "Aprendizado de Máquina (Machine Learning)", "Redes de Computadores", "Processadores Gráficos (GPU)"], certo: 1},
         { questoes: 'Em "Sword Art Online", a tecnologia VR (Realidade Virtual) é usada para criar mundos imersivos. Qual dessas tecnologias está mais próxima da VR atualmente?', respostas: ["Impressão 3D", "Realidade Aumentada (AR)", "Internet das Coisas (IoT)", "Computação em Nuvem"],certo: 1 },
         { questoes: "Qual linguagem de programação é amplamente usada para desenvolver engines de jogos como Unity?", respostas: ["Python", "C#", "JavaScript", "PHP"], certo: 1 },
@@ -21,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { questoes: 'No anime "Naruto", Shikamaru é conhecido por sua capacidade estratégica. Se ele trabalhasse com tecnologia, qual das seguintes técnicas seria mais útil para otimizar um algoritmo?', respostas: ["Bubble Sort", "Programação Dinâmica", "Pesquisa Linear", "Algoritmo Guloso (Greedy)"], certo: 1 }
     ];
 
+
     //pega toas as perguntas (é uma var)
     let questoesDisponiveis = [...perguntas];
     //para começar zerado
@@ -30,10 +40,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function CarregarProximaQuestao() {
         //Se zerou as questões, já ganha
+
+    let questoesDisponiveis = [...perguntas];
+    let QuestaoAtual = 0;
+
+    function CarregarProximaQuestao() {
+
         if (questoesDisponiveis.length === 0) {
             window.location.href = 'vitoria.html';
             return;
         }
+
 
         //var que recebe o método aleatório entre 0 e o num de quest
         const randomizar = Math.floor(Math.random() * questoesDisponiveis.length); //num aleatório
@@ -120,3 +137,50 @@ document.addEventListener('DOMContentLoaded', function () { //funcao aleatoria d
         
     }
 });
+
+        const randomizar = Math.floor(Math.random() * questoesDisponiveis.length);
+        const questaoSelecionada = questoesDisponiveis.splice(randomizar, 1)[0];
+
+        questoesBox.innerText = questaoSelecionada.questoes;
+        respostasBox.innerHTML = '';
+
+        questaoSelecionada.respostas.forEach((resposta, index) => {
+            const btn = document.createElement('button');
+            btn.innerText = resposta;
+            btn.onclick = () => VerificarRespostas(index, questaoSelecionada.certo); 
+            respostasBox.appendChild(btn);
+        });
+    }
+
+    function VerificarRespostas(selecionado, correto) {
+        if (selecionado === correto) {
+            CarregarProximaQuestao();
+        } else {
+            window.location.href = 'derrota.html';
+        }
+    }
+
+    CarregarProximaQuestao();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const jsConfetti = new JSConfetti();
+    const menuButton = document.getElementById('menuButton');
+
+    function startConfettiLoop() {
+        jsConfetti.addConfetti();
+
+        const confettiInterval = setInterval(() => {
+            jsConfetti.addConfetti(); 
+        }, 2000);
+
+        menuButton.addEventListener('click', () => {
+            clearInterval(confettiInterval); 
+            window.location.href = 'index.html';
+        });
+    }
+
+    startConfettiLoop();
+});
+
+
