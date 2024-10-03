@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const respostasBox = document.getElementById('respostas');
     const contadorBox = document.getElementById('contador');
     const pontosBox = document.getElementById('pontos');
-    //var que tem 3 objetos
+    //var que tem 3 objetos em array
     let perguntas = [
         //fazendo instanciamento dos objetos
         { questoes: "O que significa HTML?", respostas: ["HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"], certo: 0 },//índice da resp porque resposta é um array
@@ -65,11 +65,17 @@ document.addEventListener('DOMContentLoaded', function () {
     //pega o índice da clicada e o correto lá em cima
     function VerificarRespostas(selecionado, correto) {
         if (selecionado === correto) {
-            CarregarProximaQuestao();//se tiver certo, gera outra aleatória 
             QuestaoAtual++; //contador de questão 
             pontuacao=pontuacao+20; //soma questão
             ContadorQuest();
+            if(questoesDisponiveis.length==0){
+                localStorage.setItem('pontuacao',pontuacao); //deixa a pontuação local e manda lá em baixo
+                window.location.href = 'vitoria.html'; //ganhou
+            }else{
+                CarregarProximaQuestao();//se tiver certo, gera outra aleatória 
+            }
         } else {
+            localStorage.setItem('pontuacao',pontuacao); //deixa a pontuação local e manda
             window.location.href = 'derrota.html';//errou
         }
     }
@@ -80,4 +86,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     CarregarProximaQuestao();//carrega nova pergunta aleatória 
+
+    
+});
+
+// verifica se estamos na página de vitória
+document.addEventListener('DOMContentLoaded', function () { //funcao aleatoria depois do html
+    if (window.location.pathname.includes('vitoria.html') || window.location.pathname.includes('derrota.html')) {//
+        const pontos = localStorage.getItem('pontuacao'); // recupera a pontuação do localStorage
+
+        if(window.location.pathname.includes('vitoria.html')){
+            const winDiv = document.getElementById('win'); //busca a área win lá
+            const pontosWin = document.createElement('p');//cria um parágrafo
+
+            //aparece vitória
+            pontosWin.innerText = `Sua pontuação final: ${pontos}`;
+             winDiv.appendChild(pontosWin);
+        }
+
+        if(window.location.pathname.includes('derrota.html')){
+            const loseDiv = document.getElementById('lose');
+            const pontosLose = document.createElemegitnt('p');
+            //aparece derrota
+            pontosLose.innerText = `Sua pontuação final: ${pontos}`;
+            loseDiv.appendChild(pontosLose);
+        }
+        
+
+        
+        
+
+        
+        
+    }
 });
