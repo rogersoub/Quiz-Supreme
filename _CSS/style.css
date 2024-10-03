@@ -4,7 +4,38 @@
     box-sizing: border-box;
 }
 
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 100%; 
+    }
+    
+    img {
+        width: 100%;
+    }
+    
+    .botao {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    nav.fotos ul {
+        flex-direction: column;
+    }
+
+    nav.fotos ul li a img {
+        max-width: 80px;
+    }
+}
+
 body {
+    font-size: 16px;
+    font-family: 'Pixelify Sans', sans-serif;
     font-family: 'Pixelify Sans', sans-serif;
     background-color: #f5f5f5;
     margin: 0;
@@ -51,19 +82,63 @@ button:active {
     color: #a6aa3e;
 }
 
-nav .fotos ul{
-    text-decoration: none;
+nav.fotos {
+    text-align: center;
+    padding: 20px 0;
 }
 
-nav .fotos a img {
-    max-width:100px;
-    max-height:75px;
-    width: auto;
-    height: auto;
+nav.fotos ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-end;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav.fotos ul li {
+    margin: 0;
+    padding: 0;
+}
+
+nav.fotos ul li a {
+    text-decoration: none;
+    position: relative;
+}
+
+.imagens {
+    position: relative;
+    display: inline-block;
+}
+
+nav.fotos ul li a img {
+    width: 80px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+nav.fotos ul li a img:hover {
+    transform: scale(1.1);
+}
+
+.legenda {
+    display: none;
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.imagens:hover .legenda {
+    display: block;
 }
 
 #confetti {
