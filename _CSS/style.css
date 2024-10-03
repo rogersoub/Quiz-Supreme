@@ -51,6 +51,20 @@ button:active {
     color: #a6aa3e;
 }
 
+nav .fotos ul{
+    text-decoration: none;
+}
+
+nav .fotos a img {
+    max-width:100px;
+    max-height:75px;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+}
 
 #questoes {
     display: flex;
