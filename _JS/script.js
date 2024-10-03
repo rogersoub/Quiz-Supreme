@@ -52,11 +52,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function VerificarRespostas(selecionado, correto) {
         if (selecionado === correto) {
-            pontuacao += 20; // Soma 20 pontos se a resposta estiver correta
-            CarregarProximaQuestao(); // Carrega a próxima questão
+            questaoAtual++; //contador de questão 
+            pontuacao=pontuacao+20; //soma questão
+            ContadorQuest();
+            if(questoesDisponiveis.length==0){
+                localStorage.setItem('pontuacao',pontuacao); //deixa a pontuação local e manda lá em baixo
+                window.location.href = 'vitoria.html'; //ganhou
+            }else{
+                CarregarProximaQuestao();//se tiver certo, gera outra aleatória 
+            }
         } else {
-            localStorage.setItem('pontuacao', pontuacao); // Armazena pontuação
-            window.location.href = 'derrota.html'; // Redireciona para a página de derrota
+            localStorage.setItem('pontuacao',pontuacao); //deixa a pontuação local e manda
+            window.location.href = 'derrota.html';//errou
         }
     }
 
