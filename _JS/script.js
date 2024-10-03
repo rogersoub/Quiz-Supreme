@@ -58,18 +58,24 @@ document.addEventListener('DOMContentLoaded', function () {
             if(questoesDisponiveis.length==0){
                 localStorage.setItem('pontuacao',pontuacao); //deixa a pontuação local e manda lá em baixo
                 window.location.href = 'vitoria.html'; //ganhou
+                ContadorQuest()
             }else{
                 CarregarProximaQuestao();//se tiver certo, gera outra aleatória 
             }
         } else {
             localStorage.setItem('pontuacao',pontuacao); //deixa a pontuação local e manda
             window.location.href = 'derrota.html';//errou
+            ContadorQuest()
         }
+        ContadorQuest()
     }
 
     // Carrega a primeira questão
     CarregarProximaQuestao();
+    
+});
 
+document.addEventListener('DOMContentLoaded', function () {
     // Verifica se estamos na página de vitória ou derrota
     if (window.location.pathname.includes('vitoria.html') || window.location.pathname.includes('derrota.html')) {
         const pontos = localStorage.getItem('pontuacao');
