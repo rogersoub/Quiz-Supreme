@@ -1,23 +1,16 @@
 
-//abre o HTML todo primeiro
+
 document.addEventListener('DOMContentLoaded', function () {
-   //pega os locais no HTMl
+    //pega os locais no HTMl
     const questoesBox = document.getElementById('questoes');
     const respostasBox = document.getElementById('respostas');
     const contadorBox = document.getElementById('contador');
     const pontosBox = document.getElementById('pontos');
+
     //var que tem 3 objetos em array
     let perguntas = [
-        //fazendo instanciamento dos objetos
+         //fazendo instanciamento dos objetos
         { questoes: "O que significa HTML?", respostas: ["HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"], certo: 0 },//índice da resp porque resposta é um array
-
-document.addEventListener('DOMContentLoaded', function () {
-    const questoesBox = document.getElementById('questoes');
-    const respostasBox = document.getElementById('respostas');
-
-    let perguntas = [
-        { questoes: "O que significa HTML?", respostas: ["HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"], certo: 0 },
-
         { questoes: "Qual destas tecnologias é fundamental para o desenvolvimento de Inteligência Artificial (IA)?", respostas: ["Banco de Dados", "Aprendizado de Máquina (Machine Learning)", "Redes de Computadores", "Processadores Gráficos (GPU)"], certo: 1},
         { questoes: 'Em "Sword Art Online", a tecnologia VR (Realidade Virtual) é usada para criar mundos imersivos. Qual dessas tecnologias está mais próxima da VR atualmente?', respostas: ["Impressão 3D", "Realidade Aumentada (AR)", "Internet das Coisas (IoT)", "Computação em Nuvem"],certo: 1 },
         { questoes: "Qual linguagem de programação é amplamente usada para desenvolver engines de jogos como Unity?", respostas: ["Python", "C#", "JavaScript", "PHP"], certo: 1 },
@@ -38,14 +31,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let pontuacao = 0;
     ContadorQuest()
 
+        
     function CarregarProximaQuestao() {
         //Se zerou as questões, já ganha
-
-    let questoesDisponiveis = [...perguntas];
-    let QuestaoAtual = 0;
-
-    function CarregarProximaQuestao() {
-
         if (questoesDisponiveis.length === 0) {
             window.location.href = 'vitoria.html';
             return;
